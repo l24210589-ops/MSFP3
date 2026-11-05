@@ -149,7 +149,7 @@ La diferencia entre control y caso se representa **solo con el incremento de $R$
 <a id="modelo"></a>
 ## Formulación matemática
 
-El análisis se hizo a mano y se resume a continuación; el desarrollo completo está en el PDF [`Análisis_Matemático_P3.pdf`](Análisis_Matemático_P3.pdf).
+El análisis se hizo a mano y se resume a continuación; el desarrollo completo está en el PDF [`Análisis Matemático P3.pdf`](Análisis%20Matemático%20P3.pdf).
 
 ### 1. Relaciones del modelo
 
@@ -312,7 +312,7 @@ Con $\Delta t=10^{-3}\,\mathrm{s}$ (el pulso del modelo de EDOs se construye con
 
 El cuaderno MATLAB (*live script* [`Ramon24210589P1.mlx`](Ramon24210589P1.mlx), exportado como [`Ramon24210589P1.pdf`](Ramon24210589P1.pdf)) abre el modelo `Sistemas`, lo simula con `StopTime = 10`, solver `ode15s` y `MaxStep = 1e-3`, y grafica los resultados con la función `plotsignals`, que se llama dos veces:
 
-1. **Caso con tratamiento:** `plotsignals(x.t, x.F, x.PID, x.Fsy, x.Fsx, 'CCT')` grafica $F(t)$, el tratamiento, el caso y el control obtenidos de Simulink (archivo `Caso_matlab.pdf`).
+1. **Caso con tratamiento:** `plotsignals(x.t, x.F, x.PID, x.Fsy, x.Fsx, 'CCT')` grafica $F(t)$, el tratamiento, el caso y el control obtenidos de Simulink (archivo [`Simulacion_matlab.pdf`](Simulacion_matlab.pdf)).
 2. **Modelo de EDOs:** `plotsignals(t, F, PID, Fs_caso, Fs_control, 'EDOsys')` grafica $F(t)$, el tratamiento y las fuerzas del caso y del control obtenidas con la integración numérica (archivo [`EDOsys_matlab.pdf`](EDOsys_matlab.pdf)).
 
 La función `plotsignals(t,x1,x2,x3,x4,signal)` espera las señales **siempre en este orden**: $x_1=F(t)$, $x_2=PID(t)$, $x_3=F_{sY}(t)$ (caso) y $x_4=F_{sX}(t)$ (control). Grafica con línea continua, discontinua, punteada y de trazo y punto, con ejes en $-0.25\le t\le10\,\mathrm{s}$ y $-0.1\le F\le1.1\,\mathrm{V}$, leyenda en LaTeX, y exporta la figura en PDF vectorial.
@@ -401,9 +401,9 @@ $$
 
 Simulink y Python usan **las mismas ganancias**, así que las respuestas son comparables sin ajuste.
 
-![Captura del bloque PID Controller en Simulink: parámetros y desempeño](PI_controlador.jpeg)
+![Captura del bloque PID Controller en Simulink: parámetros y desempeño](PI%20controlador.jpeg)
 
-> **Pendiente antes de entregar:** la captura `PI_controlador.jpeg` muestra en la columna *Tuned* $P=0.40529$ e $I=1961.2461$, que **no coinciden** con las ganancias guardadas en `Sistemas.slx` ni con las de `Practica3Musculo.py`. Hay que volver a abrir el bloque (*Tune*), tomar una captura que muestre $0.2188$ y $3640.74$, y reemplazar el archivo. Si en cambio las ganancias de la captura son las correctas, hay que actualizar el modelo y el script de Python con esos valores.
+> **Pendiente antes de entregar:** la captura `PI controlador.jpeg` muestra en la columna *Tuned* $P=0.40529$ e $I=1961.2461$, que **no coinciden** con las ganancias guardadas en `Sistemas.slx` ni con las de `Practica3Musculo.py`. Hay que volver a abrir el bloque (*Tune*), tomar una captura que muestre $0.2188$ y $3640.74$, y reemplazar el archivo. Si en cambio las ganancias de la captura son las correctas, hay que actualizar el modelo y el script de Python con esos valores.
 
 ### 3. Desempeño en lazo cerrado
 
@@ -453,7 +453,7 @@ Para ejecutarlo se necesitan las bibliotecas `numpy`, `control` y `matplotlib` (
 
 | Figura | MATLAB/Simulink | Python |
 |---|---|---|
-| Control, caso y tratamiento ante el pulso | `Caso_matlab.pdf` (pendiente de exportar) | [`Tratamiento_python.pdf`](Tratamiento_python.pdf) |
+| Control, caso y tratamiento ante el pulso | [`Simulacion_matlab.pdf`](Simulacion_matlab.pdf) | [`Tratamiento_python.pdf`](Tratamiento_python.pdf) |
 | Control y caso con el modelo de EDOs (Euler) | [`EDOsys_matlab.pdf`](EDOsys_matlab.pdf) | — |
 
 Los PDF se enlazan para su consulta porque GitHub no los presenta como imágenes incrustadas.
@@ -468,8 +468,8 @@ Los PDF se enlazan para su consulta porque GitHub no los presenta como imágenes
 ### Notas de verificación
 
 - **Variable de salida:** el instructivo define el error con el desplazamiento, $e(t)=x_{control}(t)-x_{caso}(t)$; esta implementación usa la fuerza transmitida $F_s(t)$ como salida, de acuerdo con la ecuación de salida del modelo de EDO.
-- **Signo en el análisis a mano:** en [`Análisis_Matemático_P3.pdf`](Análisis_Matemático_P3.pdf), la hoja del Circuito 2 termina con $F_{s_2}(s)/F(s)=\alpha/[R(C_p+C_s)s+1]$ (signo positivo), pero la hoja de la función de transferencia suma $-\alpha F(s)$, que es el signo correcto: $F_{s_2}(s)/F(s)=-\alpha/[R(C_p+C_s)s+1]$.
-- **Ganancias del PI:** `Sistemas.slx` y `Practica3Musculo.py` usan $k_P=0.2188$ y $k_I=3640.74$; la captura `PI_controlador.jpeg` debe mostrar esos mismos valores (ver sección de control).
+- **Signo en el análisis a mano:** en [`Análisis Matemático P3.pdf`](Análisis%20Matemático%20P3.pdf), la hoja del Circuito 2 termina con $F_{s_2}(s)/F(s)=\alpha/[R(C_p+C_s)s+1]$ (signo positivo), pero la hoja de la función de transferencia suma $-\alpha F(s)$, que es el signo correcto: $F_{s_2}(s)/F(s)=-\alpha/[R(C_p+C_s)s+1]$.
+- **Ganancias del PI:** `Sistemas.slx` y `Practica3Musculo.py` usan $k_P=0.2188$ y $k_I=3640.74$; la captura `PI controlador.jpeg` debe mostrar esos mismos valores (ver sección de control).
 - **Inicio del pulso:** en el modelo de EDOs, `F(1/dt:2/dt)=1` activa la muestra 1000, que corresponde a $t=0.999\,\mathrm{s}$; con `F(t>=1 & t<=2)=1` el pulso empieza en $t=1.000\,\mathrm{s}$, igual que en Simulink y en Python.
 - **Etiquetas de las figuras:** en `EDOsys_matlab.pdf` las etiquetas *Caso* y *Control* deben corresponder a las curvas lenta y rápida respectivamente (el caso es la curva lenta, que sube a ≈ 0.48 V al terminar el pulso); la leyenda de la versión anterior tenía ese par intercambiado y la palabra *Control* con error de escritura.
 
@@ -525,12 +525,12 @@ Organización de la entrega con los nombres reales de los archivos:
 ├── Ramon24210589P1.pdf                # Exportación del cuaderno MATLAB
 ├── Sistemas.slx                       # Modelo Simulink/Simscape
 ├── Practica3Musculo.py                # Implementación en Python
-├── Análisis_Matemático_P3.pdf         # Desarrollo analítico a mano
-├── Caso_matlab.pdf                    # Figura de Simulink (pendiente de exportar)
+├── Análisis Matemático P3.pdf         # Desarrollo analítico a mano
+├── Simulacion_matlab.pdf              # Figura de Simulink (caso con tratamiento)
 ├── EDOsys_matlab.pdf                  # Figura del modelo de EDOs
 ├── Tratamiento_python.pdf             # Figura de Python
 ├── Biorender.jpeg                     # Esquema del modelo (BioRender)
-└── PI_controlador.jpeg                # Captura del bloque PID Controller
+└── PI controlador.jpeg                # Captura del bloque PID Controller
 ```
 
 **Criterio de nombres:** los nombres corresponden a los archivos entregados. Si se usan otros nombres o subcarpetas, actualizar las rutas del README.
