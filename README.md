@@ -149,7 +149,7 @@ La diferencia entre control y caso se representa **solo con el incremento de $R$
 <a id="modelo"></a>
 ## Formulación matemática
 
-El análisis se hizo a mano y se resume a continuación; el desarrollo completo está en el PDF [`Análisis Matemático P3.pdf`](Análisis%20Matemático%20P3.pdf).
+El análisis se hizo a mano y se resume a continuación; el desarrollo completo está en el PDF [`AnalisisMate.pdf`](Análisis%20Matemático%20P3.pdf).
 
 ### 1. Relaciones del modelo
 
